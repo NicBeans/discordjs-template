@@ -1,0 +1,25 @@
+{
+    "developers": ["262095554824110082"],
+    "enmap": {
+        "enabled": false
+    },
+    "server": {
+        "enabled": false,
+        "logging": true,
+        "port": 3000,
+        "secret": "00000000-0000-0000-0000-000000000000"
+    },
+    "jobs": {
+        "Default Job": {
+            "schedule": "* */5 * * *",
+            "log": true,
+            "runOnce": false,
+            "initialDelaySecs": 0
+        }
+    },
+    "themeColors": {
+        "text": "#ff8e4d",
+        "variable": "#ff624d",
+        "error": "#f5426c"
+    }
+}
