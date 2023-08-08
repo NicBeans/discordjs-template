@@ -5,9 +5,12 @@
     },
     "server": {
         "enabled": false,
-        "logging": true,
+        "logging": false,
         "port": 3000,
         "secret": "00000000-0000-0000-0000-000000000000"
+    },
+    "mongo": {
+        "enabled": false
     },
     "jobs": {
         "Default Job": {
@@ -18,8 +21,13 @@
         }
     },
     "themeColors": {
-        "text": "#ff8e4d",
-        "variable": "#ff624d",
-        "error": "#f5426c"
+        "error": "#DF2935",
+        "success": "#86BA90",
+        "primary": "#006BA6",
+        "accent": "#A4B8CF",
+        "background": "#C7D3E1",
+        "errorBackground": "#C45752",
+        "successBackground": "#9FC6A3",
+        "primaryBackground": "#5099A5"
     }
 }

@@ -2,6 +2,7 @@ export interface Config {
     developers: string[];
     enmap: Enmap;
     server: Server;
+    mongo: Mongo;
     jobs: (string | Jobs)[];
     themeColors: ThemeColors;
 }
@@ -17,6 +18,10 @@ export interface Server {
     secret: string;
 }
 
+export interface Mongo {
+    enabled: boolean;
+}
+
 export interface Jobs {
     schedule: string;
     log: boolean;
@@ -24,8 +29,23 @@ export interface Jobs {
     initialDelaySecs: number;
 }
 
+export type ColorType =
+    | 'error'
+    | 'success'
+    | 'primary'
+    | 'accent'
+    | 'background'
+    | 'errorBackground'
+    | 'successBackground'
+    | 'primaryBackground';
+
 export interface ThemeColors {
-    text: string;
-    variable: string;
     error: string;
+    success: string;
+    primary: string;
+    accent: string;
+    background: string;
+    errorBackground: string;
+    successBackground: string;
+    primaryBackground: string;
 }
