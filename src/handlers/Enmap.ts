@@ -11,13 +11,20 @@ const config: Config = require('../../config/config.json');
 export default async (client: Client): Promise<void> => {
     const enabled = config.enmap.enabled ?? false;
     if (!enabled) {
-        return console.log(color('text', `📜 Enmap disabled, ${color('error', 'skipping.')}`));
+        return console.log(
+            color('background', `🍃 ${color('primary', 'Enmap')} disabled, skipping`),
+        );
     }
-
-    client.enmap.set('example', new Enmap());
-
-    // const example = client.enmap.get('example') as Enmap;
-    // example.set('example', 'Optimus Prime');
-
-    // console.log(example.get('example'));
+    /**
+     * @description
+     * This is an example of how to use Enmap.
+     */
+    client.enmap.set(
+        'members',
+        new Enmap({
+            name: 'members',
+            fetchAll: true,
+            autoFetch: true,
+        }),
+    );
 };

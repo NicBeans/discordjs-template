@@ -46,17 +46,17 @@ export default async (client: Client): Promise<void> => {
         .then(data => {
             console.log(
                 color(
-                    'text',
+                    'success',
                     `🔥 Successfully loaded ${color(
-                        'variable',
+                        'background',
                         (data as SlashCommandBuilder[]).length,
                     )} slash command(s)`,
                 ),
             );
             console.log(
                 color(
-                    'text',
-                    `🔥 Successfully loaded ${color('variable', commands.length)} command(s)`,
+                    'success',
+                    `🔥 Successfully loaded ${color('background', commands.length)} command(s)`,
                 ),
             );
         })

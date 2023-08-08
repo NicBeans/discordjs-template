@@ -27,7 +27,7 @@ export default async (client: Client): Promise<void> => {
                       ),
                   );
             console.log(
-                color('text', `🌠 Successfully loaded event ${color('variable', event.name)}`),
+                color('success', `🌠 Successfully loaded event ${color('primary', event.name)}`),
             );
         }),
     );

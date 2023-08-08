@@ -12,7 +12,7 @@ export default async (client: Client): Promise<void> => {
     const enabled = config.server.enabled ?? false;
     if (!enabled) {
         return console.log(
-            color('text', `🦁 Fastify server disabled, ${color('error', 'skipping.')}`),
+            color('background', `🦁 ${color('primary', 'Fastify')} disabled, skipping`),
         );
     }
 
@@ -38,11 +38,11 @@ export default async (client: Client): Promise<void> => {
     });
 
     try {
-        await server.listen({ port: 3000 });
+        await server.listen({ port: config.server.port });
+        client.server.set('server', server);
+        console.log(color('success', `🦁 ${color('primary', 'Fastify')} started successfully`));
     } catch (err) {
         server.log.error(err);
         process.exit(1);
     }
-
-    client.server.set('server', server);
 };

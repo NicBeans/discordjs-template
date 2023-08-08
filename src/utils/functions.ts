@@ -12,14 +12,15 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 
 import GuildDB from '../schemas/Guild.js';
-import { colorType, GuildOption } from '../types/types.js';
+import { ColorType } from '../types/config.js';
+import { GuildOption } from '../types/types.js';
 
 const Config = require('../../config/config.json');
 
-export const getThemeColor = (color: colorType): number =>
+export const getThemeColor = (color: ColorType): number =>
     Number(`0x${Config.themeColors[color].substring(1)}`);
 
-export const color = (col: colorType, message: unknown): string => {
+export const color = (col: ColorType, message: unknown): string => {
     return chalk.hex(Config.themeColors[col])(message);
 };
 
