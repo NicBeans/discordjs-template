@@ -1,8 +1,4 @@
-import {
-    SlashCommandBuilder,
-    // ChannelType,
-    // TextChannel,
-} from 'discord.js';
+import { APIEmbed, Interaction, SlashCommandBuilder } from 'discord.js';
 
 import { SlashCommand } from '../types/types.js';
 import { getThemeColor } from '../utils/functions.js';
@@ -15,26 +11,7 @@ const command: SlashCommand = {
             await interaction.deferReply();
             const time = Date.now() - st;
             await interaction.editReply({
-                embeds: [
-                    {
-                        color: getThemeColor('variable'),
-                        title: 'Ping!',
-                        fields: [
-                            {
-                                name: 'Roundtrip latency',
-                                value: `${time}ms`,
-                            },
-                            {
-                                name: 'Websocket ping',
-                                value: `${
-                                    interaction.client.ws.ping === -1
-                                        ? 'Unavailable.'
-                                        : `${interaction.client.ws.ping}ms`
-                                }`,
-                            },
-                        ],
-                    },
-                ],
+                embeds: [pingCard(interaction, time)],
             });
         })().catch(e => console.log(e));
     },
@@ -42,3 +19,22 @@ const command: SlashCommand = {
 };
 
 export default command;
+
+const pingCard = (interaction: Interaction, time: number): APIEmbed => ({
+    color: getThemeColor('accent'),
+    title: 'Ping!',
+    fields: [
+        {
+            name: 'Roundtrip latency',
+            value: `${time}ms`,
+        },
+        {
+            name: 'Websocket ping',
+            value: `${
+                interaction.client.ws.ping === -1
+                    ? 'Unavailable.'
+                    : `${interaction.client.ws.ping}ms`
+            }`,
+        },
+    ],
+});
