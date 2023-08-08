@@ -2,7 +2,7 @@ import { Client } from 'discord.js';
 
 import { Job } from '../job.js';
 
-export class DefaultJob extends Job {
+export default class DefaultJob extends Job {
     public name = 'Default Job';
     public schedule = '* */1 * * *';
     public log = true;

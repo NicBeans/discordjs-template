@@ -12,7 +12,9 @@ export class CronMan {
         public jobs: Job[],
     ) {
         if (!jobs.length) {
-            console.log(color('text', `🕒 No cron jobs found, ${color('error', 'skipping.')}`));
+            console.log(
+                color('accent', `🕒 No cron jobs found, ${color('errorBackground', 'skipping.')}`),
+            );
         }
     }
 
@@ -33,7 +35,7 @@ export class CronMan {
                 try {
                     if (job.log) {
                         console.log(
-                            color('text', `🕒 Cron Job ${color('error', job.name)} Started`),
+                            color('accent', `🕒 Cron Job ${color('primary', job.name)} Started`),
                         );
                     }
 
@@ -41,7 +43,7 @@ export class CronMan {
 
                     if (job.log) {
                         console.log(
-                            color('text', `🏁 Cron Job ${color('error', job.name)} Finished`),
+                            color('accent', `🏁 Cron Job ${color('primary', job.name)} Finished`),
                         );
                     }
                 } catch (error) {
